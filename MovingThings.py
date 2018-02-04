@@ -21,6 +21,11 @@ clock = pygame.time.Clock()
 directionX = 1
 directionY = 1
 
+image_obj = pygame.image.load("cool_image.png")
+image_obj_size = image_obj.get_size()
+
+pygame.mouse.set_visible(False)  # hide the mouse pointer
+
 while True:
 
     clock.tick(40)  # this game loop will run 40 times per second.
@@ -29,7 +34,7 @@ while True:
         if event == pygame.QUIT:
             sys.exit()
 
-    screen.fill((0, 0, 0))
+    screen.fill((250, 255, 195))
 
     mouse_position = pygame.mouse.get_pos()
 
@@ -41,7 +46,12 @@ while True:
     if y + hello_world_size[1] > 600:
         y = 600 - hello_world_size[1]
 
+    if x + image_obj_size[0] > 800:
+        x = 800 - image_obj_size[0]
 
-    screen.blit(hello_world, (x, y))  # use blit to place objects on the screen. provide x, y coordinates
+    if y + image_obj_size[1] > 600:
+        y = 600 - image_obj_size[1]
+
+    screen.blit(image_obj, (x, y))  # use blit to place objects on the screen. provide x, y coordinates
 
     pygame.display.update()
