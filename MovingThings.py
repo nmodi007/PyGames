@@ -34,11 +34,24 @@ while True:
         if event == pygame.QUIT:
             sys.exit()
 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                x += 5
+
+            if event.key == pygame.K_LEFT:
+                x -= 5
+
+            if event.key == pygame.K_DOWN:
+                y += 5
+
+            if event.key == pygame.K_UP:
+                y -= 5
+
     screen.fill((250, 255, 195))
 
-    mouse_position = pygame.mouse.get_pos()
+    #mouse_position = pygame.mouse.get_pos()
 
-    x, y = mouse_position
+    #x, y = mouse_position
 
     if x + hello_world_size[0] > 800:
         x = 800 - hello_world_size[0]
